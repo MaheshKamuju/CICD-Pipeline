@@ -3,7 +3,7 @@ pipeline {
       stages {
         stage ('Docker Image for postgresql') {
           steps {
-             sh '''docker run -e POSTGRES_USER=petclinic -e POSTGRES_PASSWORD=petclinic -e POSTGRES_DB=petclinic -p 5432:5432 postgres:17.0 --name=postgresql
+             sh '''docker run --name postgresql -e POSTGRES_USER=petclinic -e POSTGRES_PASSWORD=petclinic -e POSTGRES_DB=petclinic -p 5432:5432 postgres:17.0
                   '''
              }
            }

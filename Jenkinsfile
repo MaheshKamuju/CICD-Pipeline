@@ -3,7 +3,9 @@ pipeline {
       stages {
         stage ('Docker Image for postgresql') {
           steps {
-             sh '''docker run -e POSTGRES_USER=petclinic -e POSTGRES_PASSWORD=petclinic -e POSTGRES_DB=petclinic -p 5432:5432 postgres:17.0 .'''
+             sh '''docker run -e POSTGRES_USER=petclinic -e POSTGRES_PASSWORD=petclinic -e POSTGRES_DB=petclinic -p 5432:5432 postgres:17.0 
+                  docker-compose --profile postgres up
+                  '''
              }
            }
         stage('maven Build'){
